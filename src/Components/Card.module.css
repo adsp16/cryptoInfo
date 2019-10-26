@@ -1,0 +1,17 @@
+.card {
+
+  height: auto;
+  margin: auto;
+  width: 100%;
+  margin-top: 100px;
+  padding: 50px;
+  box-shadow: 0px 0px 30px 0px rgba(102, 97, 102, 1);
+}
+
+
+.cardimg {
+
+  height: 100x;
+  width: 100px;
+
+}

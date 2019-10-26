@@ -1,0 +1,10 @@
+.coinImg {
+  height: 100px;
+  width: 100px;
+}
+
+.coinCard {
+
+  cursor: pointer;
+  box-shadow: 0px 0px 30px 0px rgba(102, 97, 102, 1);
+}
