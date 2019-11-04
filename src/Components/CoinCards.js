@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './CoinCards.module.css';
 import {
   Col,
-  Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
+  Card, CardText, CardBody,
+  CardTitle
 } from 'reactstrap';
 
 

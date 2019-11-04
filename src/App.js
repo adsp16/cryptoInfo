@@ -1,8 +1,13 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import './App.css';
 import Card from './Components/Card';
 import CoinCard from './Components/CoinCards';
-import { Container, Row, Col } from 'reactstrap';
+import {
+  Container,
+  Row
+} from 'reactstrap';
 
 
 const axios = require('axios');
@@ -33,14 +38,22 @@ class App extends Component {
         "x-rapidapi-host": "coingecko.p.rapidapi.com",
         "x-rapidapi-key": "d972f87b07mshbbf70a287d9ff97p1fe6c3jsn9dd805742889"
       }
-    }
-    ).then(response => {
+    }).then(response => {
 
-      const formPrice = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(response.data[0].current_price);
+      const formPrice = new Intl.NumberFormat('en-GB', {
+        style: 'currency',
+        currency: 'GBP'
+      }).format(response.data[0].current_price);
 
-      const formVol = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(response.data[0].total_volume);
+      const formVol = new Intl.NumberFormat('en-GB', {
+        style: 'currency',
+        currency: 'GBP'
+      }).format(response.data[0].total_volume);
 
-      const formMarCap = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(response.data[0].market_cap);
+      const formMarCap = new Intl.NumberFormat('en-GB', {
+        style: 'currency',
+        currency: 'GBP'
+      }).format(response.data[0].market_cap);
 
       const formPerChange = response.data[0].price_change_percentage_24h.toFixed(2);
 
@@ -83,21 +96,30 @@ class App extends Component {
     const selCoin = newDataArr[itemIndex];
     console.log(selCoin)
 
-    const formPrice = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(selCoin.current_price);
+    const formPrice = new Intl.NumberFormat('en-GB', {
+      style: 'currency',
+      currency: 'GBP'
+    }).format(selCoin.current_price);
 
-    const formVol = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(selCoin.total_volume);
+    const formVol = new Intl.NumberFormat('en-GB', {
+      style: 'currency',
+      currency: 'GBP'
+    }).format(selCoin.total_volume);
 
-    const formCap = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(selCoin.market_cap);
+    const formCap = new Intl.NumberFormat('en-GB', {
+      style: 'currency',
+      currency: 'GBP'
+    }).format(selCoin.market_cap);
 
-    const perChange24 =
 
-      this.setState({
-        price: formPrice,
-        dayVol: formVol,
-        marketCap: formCap,
-        coinUrl: selCoin.image,
-        perChange: selCoin.price_change_percentage_24h.toFixed(2)
-      })
+
+    this.setState({
+      price: formPrice,
+      dayVol: formVol,
+      marketCap: formCap,
+      coinUrl: selCoin.image,
+      perChange: selCoin.price_change_percentage_24h.toFixed(2)
+    })
   }
 
   componentDidMount() {
@@ -113,20 +135,56 @@ class App extends Component {
     let mappedArr = arrOne.map((item, index) => {
       const capitalOne = item.id.charAt(0).toUpperCase() + item.id.substring(1);
       const coinSym = item.symbol.toUpperCase()
-      return <CoinCard key={item.id} coinName={capitalOne} coinSymbol={coinSym} imageUrl={item.image} clicked={() => { this.toggleCoin(index) }} />
+      return <CoinCard key = {
+        item.id
+      }
+      coinName = {
+        capitalOne
+      }
+      coinSymbol = {
+        coinSym
+      }
+      imageUrl = {
+        item.image
+      }
+      clicked = {
+        () => {
+          this.toggleCoin(index)
+        }
+      }
+      />
     })
 
 
-    return (
-      <div className="App" >
-        <Card price={this.state.price} volume={this.state.dayVol} marketCap={this.state.marketCap} perChange={this.state.perChange} coinUrl={this.state.coinUrl} />
+    return ( <
+      div className = "App" >
+      <
+      Card price = {
+        this.state.price
+      }
+      volume = {
+        this.state.dayVol
+      }
+      marketCap = {
+        this.state.marketCap
+      }
+      perChange = {
+        this.state.perChange
+      }
+      coinUrl = {
+        this.state.coinUrl
+      }
+      />
 
-        <Container>
-          <Row>
-            {mappedArr}
-          </Row>
-        </Container>
-      </div>
+      <
+      Container >
+      <
+      Row > {
+        mappedArr
+      } <
+      /Row> < /
+      Container > <
+      /div>
     )
   };
 }
